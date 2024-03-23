@@ -1,0 +1,112 @@
+.board{
+  position: relative;
+  display: grid;
+width:100vw;
+/* height: 100vh; */
+grid-template-columns: repeat(3,auto);
+align-content: center;
+justify-items: center;
+align-items: center;
+justify-content: center;
+}
+.cell{
+border:1px solid black;
+width: var(--cell-size);
+height: var(--cell-size);
+display: flex;
+flex-direction: column;
+align-content: center;
+justify-items: center;
+align-items: center;
+justify-content: center;
+font-size: 270%;
+font-weight: 700;
+cursor: pointer;
+}
+
+.cell {
+  position: relative; /* Asegúrate de que la celda tenga una posición relativa */
+  
+}
+
+
+.cell.selected:hover::before {
+  opacity: 0; /* Oculta el hover */
+  pointer-events: none; /* Deshabilita el hover */
+}
+
+
+.cell::before {
+  content: attr(data-cell); /* Muestra la letra en el contenido antes de la celda */
+  position: absolute; /* Coloca la letra sobre la celda */
+  top: 50%; /* Alinea la letra verticalmente en el centro */
+  left: 50%; /* Alinea la letra horizontalmente en el centro */
+  transform: translate(-50%, -50%); /* Centra la letra */
+  opacity: 0; /* Inicialmente oculta la letra */
+  transition: opacity 0.3s ease; /* Agrega una transición suave para mostrar/ocultar la letra */
+
+}
+
+.cell:hover::before {
+  opacity: 1; /* Muestra la letra cuando el mouse está sobre la celda */
+}
+
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3)
+
+{
+ border-top:none;
+}
+
+.cell:nth-child(3n+1)
+
+{
+ border-left:none;
+}
+
+
+.cell:nth-child(3n+3)
+
+{
+ border-right:none;
+}
+
+.cell:nth-child(9),
+.cell:nth-child(8),
+.cell:nth-child(7)
+
+{
+ border-bottom:none;
+}
+
+p{
+  text-align: center;
+  padding: 0px;
+  font-size: 270%;
+  font-weight: 700;
+}  
+*,*::after,*::before{
+  /* box-sizing: border-box; */
+}  
+:root{
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size)  * .9);
+}  
+ 
+
+.alert{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 270%;
+  font-weight: 700;
+}
